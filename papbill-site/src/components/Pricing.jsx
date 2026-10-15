@@ -105,7 +105,7 @@ export default function Pricing() {
             return (
               <div
                 key={idx}
-                className={`rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 relative ${
+                className={`rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 relative ${
                   plan.isPopular
                     ? 'bg-white border-2 border-[#FF5A00] shadow-2xl shadow-orange-500/10 md:-translate-y-2'
                     : 'glass-panel bg-white border border-slate-200 shadow-lg hover:border-slate-300'

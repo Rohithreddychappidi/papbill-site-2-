@@ -153,11 +153,13 @@ export default function PhoneDemo() {
                       playsInline
                       loop
                       muted={isMuted}
+                      poster="/videos/hero-poster.jpg"
                       preload="metadata"
                       onPlay={() => setIsPlaying(true)}
                       onPause={() => setIsPlaying(false)}
                       onError={() => setVideoError(true)}
                     >
+                      <source src="/videos/hero-demo.mp4" type="video/mp4" />
                       <source src="/videos/papbill-demo.mp4" type="video/mp4" />
                     </video>
 

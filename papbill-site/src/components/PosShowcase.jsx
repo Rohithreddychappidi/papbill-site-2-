@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { getWhatsAppUrl } from '../utils/whatsapp';
-import { CheckCircle2, ArrowRight, Laptop, Monitor, Smartphone, WifiOff, Cloud } from 'lucide-react';
+import { CheckCircle2, ArrowRight, Laptop, Monitor, Smartphone, WifiOff, Cloud, Sparkles } from 'lucide-react';
 
 export default function PosShowcase() {
   const [activeTable, setActiveTable] = useState('T-05');
@@ -16,42 +16,42 @@ export default function PosShowcase() {
   ];
 
   return (
-    <section id="features" className="py-20 bg-white border-t border-slate-100 w-full relative">
+    <section id="features" className="py-20 md:py-28 bg-white/70 border-t border-slate-100 w-full relative">
       <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 max-w-full">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           
           {/* Left Column: POS Copy & Checkmarks */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200/70 text-[#FF5A00] text-xs font-semibold tracking-wide uppercase">
-              <Cloud className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-[#FF5A00] text-xs font-bold tracking-wide uppercase">
+              <Cloud className="w-4 h-4" />
               Cloud-Backed POS Engine
             </div>
 
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-900 leading-tight">
               A POS Designed for <br className="hidden sm:inline" />
               Fast-Paced Restaurants
             </h2>
 
-            <p className="text-sm md:text-base text-slate-600 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
               Fast counter billing, quick table swaps, real-time sync with kitchen displays, and automated cloud sync. Works smoothly on Android tablets, desktop PCs, and smartphones.
             </p>
 
             {/* Checkmark List */}
-            <div className="space-y-3 pt-1">
+            <div className="space-y-3.5 pt-1">
               {features.map((feat, idx) => (
-                <div key={idx} className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#FF5A00] shrink-0 mt-0.5" />
-                  <span className="text-xs md:text-sm text-slate-700 font-medium leading-snug">{feat}</span>
+                <div key={idx} className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-[#FF5A00] shrink-0 mt-0.5" />
+                  <span className="text-sm md:text-base text-slate-700 font-medium leading-snug">{feat}</span>
                 </div>
               ))}
             </div>
 
-            <div className="pt-2 flex items-center gap-4 text-slate-400 text-xs font-medium">
-              <span className="flex items-center gap-1.5"><Smartphone className="w-3.5 h-3.5 text-slate-600" /> Phone</span>
-              <span className="flex items-center gap-1.5"><Laptop className="w-3.5 h-3.5 text-slate-600" /> Tablet</span>
-              <span className="flex items-center gap-1.5"><Monitor className="w-3.5 h-3.5 text-slate-600" /> Desktop</span>
-              <span className="flex items-center gap-1.5"><WifiOff className="w-3.5 h-3.5 text-slate-600" /> Offline</span>
+            <div className="pt-2 flex items-center gap-5 text-slate-500 text-xs sm:text-sm font-semibold">
+              <span className="flex items-center gap-1.5"><Smartphone className="w-4 h-4 text-slate-700" /> Phone</span>
+              <span className="flex items-center gap-1.5"><Laptop className="w-4 h-4 text-slate-700" /> Tablet</span>
+              <span className="flex items-center gap-1.5"><Monitor className="w-4 h-4 text-slate-700" /> Desktop</span>
+              <span className="flex items-center gap-1.5"><WifiOff className="w-4 h-4 text-slate-700" /> Offline</span>
             </div>
 
             <div className="pt-2">
@@ -59,17 +59,37 @@ export default function PosShowcase() {
                 href={posActionUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary text-xs sm:text-sm py-2.5 px-5 group inline-flex items-center gap-2"
+                className="btn-primary text-sm sm:text-base py-3 px-6 group inline-flex items-center gap-2"
               >
                 <span>Request POS Walkthrough on WhatsApp</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
           </div>
 
-          {/* Right Column: POS Display Interface Mockup */}
-          <div className="lg:col-span-7">
-            <div className="glass-panel rounded-3xl p-3.5 bg-white shadow-xl border border-slate-200">
+          {/* Right Column: Restaurant Ambiance Photo + Live POS Display Mockup */}
+          <div className="lg:col-span-7 space-y-5">
+            
+            {/* Real Restaurant Counter Photo Card */}
+            <div className="rounded-3xl overflow-hidden glass-panel p-2.5 sm:p-3 bg-white shadow-xl border border-slate-200">
+              <div className="relative rounded-2xl overflow-hidden aspect-[16/9] bg-slate-950">
+                <img
+                  src="/images/restaurant-counter.jpg"
+                  alt="Modern restaurant billing counter in India with barista and POS system"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-4">
+                  <div className="text-white">
+                    <div className="text-sm sm:text-base font-bold">Fast Indian Food Counters & Cafes</div>
+                    <div className="text-xs text-slate-300">Keep order lines moving during busy lunch & dinner hours</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Interactive POS Display Interface */}
+            <div className="glass-panel rounded-3xl p-3 sm:p-4 bg-white shadow-2xl border border-slate-200">
               <div className="bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 text-slate-100 shadow-2xl">
                 
                 {/* Header bar */}
@@ -96,7 +116,7 @@ export default function PosShowcase() {
                 </div>
 
                 {/* Main POS Interface Area */}
-                <div className="grid grid-cols-1 md:grid-cols-12 min-h-[300px]">
+                <div className="grid grid-cols-1 md:grid-cols-12 min-h-[280px]">
                   
                   {/* Left Column: Menu Items */}
                   <div className="md:col-span-7 p-3 border-b md:border-b-0 md:border-r border-slate-800/80 space-y-3">
@@ -203,6 +223,7 @@ export default function PosShowcase() {
 
               </div>
             </div>
+
           </div>
 
         </div>

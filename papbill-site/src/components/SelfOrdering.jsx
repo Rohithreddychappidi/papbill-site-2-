@@ -29,106 +29,79 @@ export default function SelfOrdering() {
   ];
 
   return (
-    <section id="solutions" className="py-20 bg-white border-t border-slate-100 w-full relative">
+    <section id="solutions" className="py-20 md:py-28 bg-white/60 border-t border-slate-100 w-full relative">
       <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 max-w-full">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           
-          {/* Left Column: Acrylic Table QR Stand Mockup */}
-          <div className="lg:col-span-5 flex justify-center">
-            <div className="relative group w-full max-w-[320px]">
+          {/* Left Column: Real Restaurant Table QR Photo */}
+          <div className="lg:col-span-6 flex justify-center">
+            <div className="relative group w-full max-w-[540px]">
               
-              {/* Acrylic Glass Stand */}
-              <div className="relative glass-panel rounded-3xl p-6 bg-white shadow-2xl border border-slate-200/90 text-center transform transition-transform group-hover:scale-[1.02] duration-300">
-                <div className="w-16 h-2 bg-slate-300 rounded-full mx-auto mb-5" />
+              {/* Photo Card with Glass Frame */}
+              <div className="relative rounded-3xl overflow-hidden glass-panel p-2.5 sm:p-3 bg-white shadow-2xl border border-slate-200/90 group-hover:border-orange-500/40 transition-all duration-300">
+                <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-slate-100">
+                  <img
+                    src="/images/table-qr.jpg"
+                    alt="PapBill Table QR Ordering on Dining Table with Dosa and Coffee"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  {/* Floating live tag over image */}
+                  <div className="absolute top-4 left-4 glass-panel bg-white/90 px-3 py-1.5 rounded-full flex items-center gap-2 shadow-lg">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="text-xs font-bold text-slate-900">Table 5 · Active Menu</span>
+                  </div>
 
-                <div className="flex justify-center mb-2">
-                  <img src="/papbill-logo.png" alt="PapBill" className="h-7 object-contain" />
-                </div>
-                <div className="text-[10px] uppercase tracking-wider text-slate-400 font-medium mb-4">
-                  Table Self-Ordering
-                </div>
-
-                {/* QR Code Container */}
-                <div className="w-44 h-44 mx-auto rounded-2xl bg-white p-3.5 shadow-sm border border-slate-200/80 flex flex-col items-center justify-center relative overflow-hidden group-hover:border-orange-500/30 transition-colors">
-                  <div className="relative w-full h-full flex items-center justify-center">
-                    <svg className="w-full h-full text-slate-900" viewBox="0 0 100 100" fill="currentColor">
-                      <rect x="5" y="5" width="28" height="28" rx="4" fill="none" stroke="currentColor" strokeWidth="6" />
-                      <rect x="12" y="12" width="14" height="14" rx="2" />
-                      <rect x="67" y="5" width="28" height="28" rx="4" fill="none" stroke="currentColor" strokeWidth="6" />
-                      <rect x="74" y="12" width="14" height="14" rx="2" />
-                      <rect x="5" y="67" width="28" height="28" rx="4" fill="none" stroke="currentColor" strokeWidth="6" />
-                      <rect x="12" y="74" width="14" height="14" rx="2" />
-                      <rect x="42" y="10" width="7" height="7" rx="1.5" />
-                      <rect x="52" y="10" width="7" height="7" rx="1.5" />
-                      <rect x="42" y="22" width="7" height="7" rx="1.5" />
-                      <rect x="10" y="42" width="7" height="7" rx="1.5" />
-                      <rect x="22" y="42" width="7" height="7" rx="1.5" />
-                      <rect x="34" y="42" width="7" height="7" rx="1.5" />
-                      <rect x="46" y="42" width="8" height="8" rx="2" fill="#FF5A00" />
-                      <rect x="58" y="42" width="7" height="7" rx="1.5" />
-                      <rect x="70" y="42" width="7" height="7" rx="1.5" />
-                      <rect x="82" y="42" width="7" height="7" rx="1.5" />
-                      <rect x="42" y="54" width="7" height="7" rx="1.5" />
-                      <rect x="54" y="54" width="7" height="7" rx="1.5" />
-                      <rect x="42" y="68" width="7" height="7" rx="1.5" />
-                      <rect x="54" y="68" width="7" height="7" rx="1.5" />
-                      <rect x="70" y="68" width="8" height="8" rx="1.5" />
-                      <rect x="82" y="68" width="7" height="7" rx="1.5" />
-                      <rect x="42" y="82" width="7" height="7" rx="1.5" />
-                      <rect x="70" y="82" width="7" height="7" rx="1.5" />
-                      <rect x="82" y="82" width="7" height="7" rx="1.5" />
-                    </svg>
+                  <div className="absolute bottom-4 right-4 bg-slate-950/85 backdrop-blur-md text-white px-3 py-1.5 rounded-xl text-xs font-semibold shadow-lg">
+                    Included in ₹299/mo Plan
                   </div>
                 </div>
 
-                <div className="mt-4 inline-block px-3.5 py-1 rounded-full bg-slate-900 text-white font-bold text-xs tracking-wide">
-                  Table 5
-                </div>
-
-                <div className="text-[12px] font-semibold text-slate-800 mt-2">
-                  Scan to view menu & order
-                </div>
-                <div className="text-[10px] text-slate-400 font-medium">
-                  Included in ₹299/mo Plan
+                <div className="p-3 text-center">
+                  <div className="text-xs sm:text-sm font-bold text-slate-800">
+                    Real-World Dine-In Table QR Stand
+                  </div>
+                  <div className="text-[11px] text-slate-500 mt-0.5">
+                    Customers scan to view menu, customize ingredients & order in seconds
+                  </div>
                 </div>
               </div>
 
-              <div className="w-[85%] h-4 bg-amber-900/30 rounded-full mx-auto -mt-2 blur-[1px]" />
             </div>
           </div>
 
           {/* Right Column: Copy & 4 Benefit Pills */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200/70 text-[#FF5A00] text-xs font-semibold tracking-wide uppercase">
-              <QrCode className="w-3.5 h-3.5" />
+          <div className="lg:col-span-6 space-y-6">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-[#FF5A00] text-xs font-bold tracking-wide uppercase">
+              <QrCode className="w-4 h-4" />
               Included in the ₹299/mo Plan
             </div>
 
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-900 leading-tight">
               Let Your Customers <br className="hidden sm:inline" />
               Order Directly from Tables
             </h2>
 
-            <p className="text-sm md:text-base text-slate-600 leading-relaxed max-w-xl">
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
               Place a sleek QR stand on each dining table. Guests scan with their phone camera, browse dishes with photos, customize orders, and send them directly to your kitchen.
             </p>
 
             {/* 4 Feature Benefit Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
               {benefits.map((item, idx) => {
                 const Icon = item.icon;
                 return (
                   <div
                     key={idx}
-                    className="glass-panel glass-panel-hover p-4 rounded-xl flex items-start gap-3 bg-white"
+                    className="glass-panel glass-panel-hover p-4 sm:p-5 rounded-2xl flex items-start gap-3.5 bg-white"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-orange-50 border border-orange-200/60 flex items-center justify-center text-[#FF5A00] shrink-0 mt-0.5">
+                    <div className="w-9 h-9 rounded-xl bg-orange-50 border border-orange-200/80 flex items-center justify-center text-[#FF5A00] shrink-0 mt-0.5">
                       <Icon className="w-4 h-4" />
                     </div>
                     <div>
-                      <div className="text-[13px] font-bold text-slate-900">{item.title}</div>
-                      <div className="text-[11px] text-slate-500 mt-0.5 leading-normal">{item.desc}</div>
+                      <div className="text-sm font-bold text-slate-900">{item.title}</div>
+                      <div className="text-xs text-slate-500 mt-1 leading-normal">{item.desc}</div>
                     </div>
                   </div>
                 );
@@ -140,10 +113,10 @@ export default function SelfOrdering() {
                 href={qrDemoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary text-xs sm:text-sm py-2.5 px-5 group inline-flex items-center gap-2"
+                className="btn-primary text-sm sm:text-base py-3 px-6 group inline-flex items-center gap-2"
               >
                 <span>Ask about Table QR on WhatsApp</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
 
