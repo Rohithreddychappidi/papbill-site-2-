@@ -1,114 +1,115 @@
 import React from 'react';
-import { Star, Quote, Building, CheckCircle } from 'lucide-react';
+import { getWhatsAppUrl } from '../utils/whatsapp';
+import { 
+  Cloud, 
+  WifiOff, 
+  Zap, 
+  Globe2, 
+  Printer, 
+  ShieldCheck, 
+  ArrowRight,
+  Sparkles
+} from 'lucide-react';
 
 export default function SocialProof() {
-  const stats = [
-    { value: '1,000+', label: 'Active Restaurants' },
-    { value: '3M+', label: 'Bills Generated' },
-    { value: '50+', label: 'Cities Across India' },
-    { value: '98%', label: 'Customer Satisfaction' },
-  ];
+  const trialUrl = getWhatsAppUrl('Hi PapBill, I want to join the Early Access program and get a 15-day free trial.');
 
-  const testimonials = [
+  const pillars = [
     {
-      quote: 'PapBill has completely transformed our restaurant operations. The QR ordering is smooth, kitchen delays dropped to zero, and our customers love the contactless experience.',
-      author: 'Varahi Restaurant',
-      location: 'Chennai',
-      type: 'Dine-In & South Indian Thali',
-      initials: 'VR',
-      rating: 5
+      icon: Cloud,
+      title: 'Cloud Billing Storage',
+      desc: 'Every bill generated is automatically backed up in secure cloud storage. Access live sales from anywhere on your phone.'
     },
     {
-      quote: 'Easy to use, powerful features and phenomenal WhatsApp support. Our billing counter and inventory reconciliations are now completely streamlined every night.',
-      author: 'Spice N Grill',
-      location: 'Bengaluru',
-      type: 'Multi-Cuisine Casual Dining',
-      initials: 'SG',
-      rating: 5
+      icon: WifiOff,
+      title: 'Offline-First Engine',
+      desc: 'Internet downtime never stops your restaurant. Keep punching orders and printing bills; everything auto-syncs when online.'
     },
     {
-      quote: 'The onboarding was completed in a single afternoon and the team trained our cashiers with care. Highly recommend PapBill to any fast-paced restaurant or cafe.',
-      author: 'Hotel Sri Krishna',
-      location: 'Hyderabad',
-      type: 'Heritage Pure Veg Dining',
-      initials: 'SK',
-      rating: 5
+      icon: Zap,
+      title: 'Sub-2-Second Checkout',
+      desc: 'Optimized touch keyboard and barcode shortcuts so your cashiers can clear peak hour rush lines in seconds.'
+    },
+    {
+      icon: Printer,
+      title: 'Thermal Printer Ready',
+      desc: 'Plug-and-play compatibility with standard 58mm and 80mm ESC/POS USB and Bluetooth thermal printers.'
+    },
+    {
+      icon: Globe2,
+      title: '11 Indian Languages',
+      desc: 'English, Hindi, Telugu, Tamil, Kannada, Malayalam, Marathi, Bengali, Gujarati, Punjabi, and Odia.'
+    },
+    {
+      icon: ShieldCheck,
+      title: 'Zero Commission Fees',
+      desc: 'Keep 100% of your earnings. Simple flat ₹199 or ₹299 monthly plans without predatory percentages.'
     }
   ];
 
   return (
-    <section className="py-20 bg-white border-t border-slate-100 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 bg-white border-t border-slate-100 w-full relative">
+      <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 max-w-full">
         
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50 border border-orange-200/70 text-[#FF5A00] text-[11px] font-semibold tracking-wide uppercase mb-3">
-            Real Results
+        <div className="text-center max-w-2xl mx-auto mb-14 animate-fade-in-up">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50 border border-orange-200/70 text-[#FF5A00] text-xs font-semibold tracking-wide uppercase mb-3">
+            <Sparkles className="w-3.5 h-3.5" />
+            Engineering & Product Focus
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">
-            Trusted by Restaurants Across India
+            Engineered for Real Restaurant Realities
           </h2>
           <p className="text-slate-600 text-sm mt-2">
-            From quick-service cafes to multi-branch fine dining, PapBill powers daily hospitality operations with 99.9% reliability.
+            No bloated corporate software. Just lightweight, rock-solid billing built specifically for busy food counters in India.
           </p>
         </div>
 
-        {/* 4 Impact Stat Counters */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14">
-          {stats.map((s, idx) => (
-            <div
-              key={idx}
-              className="glass-panel p-5 rounded-2xl text-center bg-white border border-slate-200/80"
-            >
-              <div className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">
-                {s.value}
+        {/* 6 Product Architecture Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {pillars.map((item, idx) => {
+            const Icon = item.icon;
+            return (
+              <div
+                key={idx}
+                className="glass-panel glass-panel-hover p-6 rounded-2xl bg-white border border-slate-200/80 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="w-10 h-10 rounded-xl bg-orange-50 border border-orange-200/60 flex items-center justify-center text-[#FF5A00] mb-4">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-sm font-bold text-slate-900 mb-1.5">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-slate-500 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
               </div>
-              <div className="text-xs text-slate-500 font-medium mt-1">
-                {s.label}
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map((t, idx) => (
-            <div
-              key={idx}
-              className="glass-panel glass-panel-hover p-6 rounded-2xl bg-white flex flex-col justify-between relative"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex gap-0.5 text-amber-400">
-                    {[...Array(t.rating)].map((_, i) => (
-                      <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                    ))}
-                  </div>
-                  <Quote className="w-5 h-5 text-slate-200" />
-                </div>
-
-                <p className="text-xs sm:text-[13px] text-slate-700 leading-relaxed italic mb-6">
-                  "{t.quote}"
-                </p>
-              </div>
-
-              {/* Author Info */}
-              <div className="flex items-center gap-3 pt-4 border-t border-slate-100">
-                <div className="w-9 h-9 rounded-full bg-orange-100 border border-orange-200 text-[#FF5A00] font-bold text-xs flex items-center justify-center shrink-0">
-                  {t.initials}
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-slate-900 flex items-center gap-1">
-                    <span>{t.author}</span>
-                    <CheckCircle className="w-3 h-3 text-[#FF5A00] inline" />
-                  </div>
-                  <div className="text-[10px] text-slate-500 font-medium">
-                    {t.location} · {t.type}
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
+        {/* Early Access / 15 Days Free Trial Callout */}
+        <div className="mt-14 max-w-3xl mx-auto glass-panel p-8 rounded-3xl bg-slate-900 text-white text-center border border-slate-800 shadow-xl">
+          <div className="inline-block px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 text-[11px] font-bold uppercase tracking-wider mb-3">
+            Early Access Beta Program
+          </div>
+          <h3 className="text-xl sm:text-2xl font-extrabold text-white">
+            Get 15 Days of Full Access for Free
+          </h3>
+          <p className="text-xs sm:text-sm text-slate-300 max-w-lg mx-auto mt-2 mb-6">
+            Help shape PapBill directly with our development team. Get personal onboarding, priority feature requests, and 15 days completely free.
+          </p>
+          <a
+            href={trialUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary text-xs sm:text-sm py-2.5 px-6 shadow-lg shadow-orange-500/30 group inline-flex items-center gap-2"
+          >
+            <span>Claim 15 Days Free Trial on WhatsApp</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+          </a>
         </div>
 
       </div>

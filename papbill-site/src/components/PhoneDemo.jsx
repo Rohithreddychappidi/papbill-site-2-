@@ -24,7 +24,7 @@ export default function PhoneDemo() {
   const [videoError, setVideoError] = useState(false);
 
   const videoRef = useRef(null);
-  const bookDemoUrl = getWhatsAppUrl('Hi PapBill, I watched the demo and would like to schedule a 1-on-1 walkthrough on WhatsApp.');
+  const bookDemoUrl = getWhatsAppUrl('Hi PapBill, I watched the interactive phone demo and want to schedule a 15-day free trial walkthrough.');
 
   const togglePlay = () => {
     if (!videoRef.current) return;
@@ -43,15 +43,14 @@ export default function PhoneDemo() {
   };
 
   return (
-    <section id="demo" className="py-20 bg-white border-t border-slate-100 relative overflow-hidden">
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-100/40 rounded-full blur-3xl pointer-events-none -z-10" />
+    <section id="demo" className="py-20 bg-white border-t border-slate-100 w-full relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-orange-100/35 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 max-w-full">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50 border border-orange-200/70 text-[#FF5A00] text-[11px] font-semibold tracking-wide uppercase mb-3">
+        <div className="text-center max-w-2xl mx-auto mb-12 animate-fade-in-up">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50 border border-orange-200/70 text-[#FF5A00] text-xs font-semibold tracking-wide uppercase mb-3">
             <Sparkles className="w-3.5 h-3.5" />
             Interactive Mobile Experience
           </div>
@@ -63,7 +62,7 @@ export default function PhoneDemo() {
           </p>
 
           {/* Interactive Screen Selector Tabs */}
-          <div className="mt-6 inline-flex p-1 rounded-xl glass-panel bg-white/80 border border-slate-200">
+          <div className="mt-6 inline-flex p-1 rounded-xl glass-panel bg-white/90 border border-slate-200">
             <button
               onClick={() => setActiveTab('video')}
               className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
@@ -116,18 +115,16 @@ export default function PhoneDemo() {
 
         {/* Realistic Smartphone Mockup Frame */}
         <div className="flex justify-center">
-          <div className="relative w-[300px] sm:w-[320px] aspect-[9/19] rounded-[48px] bg-slate-950 p-3 shadow-2xl border-[4px] border-slate-800 ring-1 ring-slate-900/50">
+          <div className="relative w-[300px] sm:w-[325px] aspect-[9/19] rounded-[48px] bg-slate-950 p-3 shadow-2xl border-[4px] border-slate-800 ring-1 ring-slate-900/50">
             
-            {/* Phone Buttons / Mute switch on sides */}
             <div className="absolute -left-[7px] top-24 w-[3px] h-8 bg-slate-700 rounded-l" />
             <div className="absolute -left-[7px] top-36 w-[3px] h-12 bg-slate-700 rounded-l" />
             <div className="absolute -left-[7px] top-52 w-[3px] h-12 bg-slate-700 rounded-l" />
             <div className="absolute -right-[7px] top-32 w-[3px] h-16 bg-slate-700 rounded-r" />
 
-            {/* Inner Screen */}
             <div className="relative w-full h-full rounded-[40px] overflow-hidden bg-white flex flex-col justify-between select-none">
               
-              {/* Dynamic Island / Speaker Pill */}
+              {/* Dynamic Island */}
               <div className="absolute top-2.5 left-1/2 -translate-x-1/2 z-30 w-24 h-5 bg-black rounded-full flex items-center justify-between px-2 shadow-sm">
                 <div className="w-2.5 h-2.5 rounded-full bg-slate-900" />
                 <div className="w-2 h-2 rounded-full bg-slate-800" />
@@ -164,15 +161,14 @@ export default function PhoneDemo() {
                       <source src="/videos/papbill-demo.mp4" type="video/mp4" />
                     </video>
 
-                    {/* Fallback / Overlay if video is not yet placed or paused */}
                     {videoError ? (
                       <div className="relative z-10 text-center p-6 space-y-3">
                         <div className="w-12 h-12 rounded-full bg-[#FF5A00]/20 border border-orange-500/40 flex items-center justify-center text-[#FF5A00] mx-auto animate-pulse">
                           <Video className="w-6 h-6" />
                         </div>
-                        <h4 className="font-bold text-sm text-slate-100">PapBill 20s Demo</h4>
+                        <h4 className="font-bold text-sm text-slate-100">PapBill Demo Video</h4>
                         <p className="text-[11px] text-slate-400 leading-normal">
-                          Ready for your demo file: place <code className="text-orange-400 bg-slate-900 px-1 py-0.5 rounded">papbill-demo.mp4</code> into the <code className="text-orange-400 bg-slate-900 px-1 py-0.5 rounded">videos/</code> folder!
+                          Ready for your demo clip: place <code className="text-orange-400 bg-slate-900 px-1 py-0.5 rounded">papbill-demo.mp4</code> into the <code className="text-orange-400 bg-slate-900 px-1 py-0.5 rounded">videos/</code> folder!
                         </p>
                         <a
                           href={bookDemoUrl}
@@ -180,7 +176,7 @@ export default function PhoneDemo() {
                           rel="noopener noreferrer"
                           className="inline-block mt-2 px-3 py-1.5 rounded-lg bg-[#FF5A00] text-white text-[11px] font-semibold"
                         >
-                          Request Video on WhatsApp
+                          Request Walkthrough on WhatsApp
                         </a>
                       </div>
                     ) : (
@@ -210,16 +206,15 @@ export default function PhoneDemo() {
                   <div className="space-y-3 pt-1 animate-in fade-in duration-200">
                     <div className="flex items-center justify-between pb-2 border-b border-slate-100">
                       <div>
-                        <div className="font-bold text-xs text-slate-900">Udupi Grand Restaurant</div>
-                        <div className="text-[10px] text-slate-500">Table 5 · Dine-In Menu</div>
+                        <div className="font-bold text-xs text-slate-900">Udupi Tiffins</div>
+                        <div className="text-[10px] text-slate-500">Table 6 · Table QR Menu</div>
                       </div>
                       <span className="px-2 py-0.5 bg-emerald-50 text-emerald-700 text-[10px] font-semibold rounded-full border border-emerald-200">
-                        Open
+                        Active
                       </span>
                     </div>
 
                     <div className="space-y-2 text-xs">
-                      {/* Menu Item 1 */}
                       <div className="p-2.5 rounded-xl border border-slate-200 bg-white hover:border-orange-500/30 transition-colors flex items-center justify-between">
                         <div>
                           <div className="flex items-center gap-1.5 font-semibold text-slate-900 text-[11px]">
@@ -228,7 +223,7 @@ export default function PhoneDemo() {
                             </span>
                             <span>Paneer Butter Masala</span>
                           </div>
-                          <div className="text-[10px] text-slate-500 mt-0.5">Rich cashew tomato gravy</div>
+                          <div className="text-[10px] text-slate-500 mt-0.5">Rich cashew gravy</div>
                           <div className="font-bold text-slate-900 text-[11px] mt-1">₹220</div>
                         </div>
                         <button
@@ -239,17 +234,16 @@ export default function PhoneDemo() {
                         </button>
                       </div>
 
-                      {/* Menu Item 2 */}
                       <div className="p-2.5 rounded-xl border border-slate-200 bg-white hover:border-orange-500/30 transition-colors flex items-center justify-between">
                         <div>
                           <div className="flex items-center gap-1.5 font-semibold text-slate-900 text-[11px]">
                             <span className="w-2.5 h-2.5 rounded-xs border border-emerald-600 p-0.5 flex items-center justify-center">
                               <span className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
                             </span>
-                            <span>Crispy Gobi 65</span>
+                            <span>Crispy Masala Dosa</span>
                           </div>
-                          <div className="text-[10px] text-slate-500 mt-0.5">Spicy curry leaf batter</div>
-                          <div className="font-bold text-slate-900 text-[11px] mt-1">₹160</div>
+                          <div className="text-[10px] text-slate-500 mt-0.5">Golden roasted with chutney</div>
+                          <div className="font-bold text-slate-900 text-[11px] mt-1">₹70</div>
                         </div>
                         <button
                           onClick={() => setCartCount((c) => c + 1)}
@@ -259,7 +253,6 @@ export default function PhoneDemo() {
                         </button>
                       </div>
 
-                      {/* Menu Item 3 */}
                       <div className="p-2.5 rounded-xl border border-slate-200 bg-white hover:border-orange-500/30 transition-colors flex items-center justify-between">
                         <div>
                           <div className="flex items-center gap-1.5 font-semibold text-slate-900 text-[11px]">
@@ -268,7 +261,7 @@ export default function PhoneDemo() {
                             </span>
                             <span>Filter Coffee</span>
                           </div>
-                          <div className="text-[10px] text-slate-500 mt-0.5">South Indian decoction</div>
+                          <div className="text-[10px] text-slate-500 mt-0.5">Hot decoction brew</div>
                           <div className="font-bold text-slate-900 text-[11px] mt-1">₹40</div>
                         </div>
                         <button
@@ -280,7 +273,6 @@ export default function PhoneDemo() {
                       </div>
                     </div>
 
-                    {/* Sticky Cart Bar */}
                     <div className="mt-auto pt-2">
                       <div className="p-2.5 rounded-xl bg-[#FF5A00] text-white flex items-center justify-between text-xs font-semibold shadow-md">
                         <div className="flex items-center gap-1.5">
@@ -289,7 +281,7 @@ export default function PhoneDemo() {
                           </span>
                           <span>Items in Cart</span>
                         </div>
-                        <span className="font-mono">₹420 · View Order →</span>
+                        <span className="font-mono">Place Order →</span>
                       </div>
                     </div>
                   </div>
@@ -303,7 +295,7 @@ export default function PhoneDemo() {
                         <ChefHat className="w-4 h-4 text-[#FF5A00]" />
                         <div>
                           <div className="text-[11px] font-bold text-slate-900">Kitchen Display (KDS)</div>
-                          <div className="text-[9px] text-slate-500">KOT #1042 · Table 5</div>
+                          <div className="text-[9px] text-slate-500">KOT #1042 · Table 6</div>
                         </div>
                       </div>
                       <span className="px-2 py-0.5 rounded bg-emerald-500 text-white text-[9px] font-bold animate-pulse">
@@ -314,16 +306,16 @@ export default function PhoneDemo() {
                     <div className="space-y-2 text-[11px] font-mono">
                       <div className="p-2 rounded-lg bg-slate-50 border border-slate-200 flex justify-between items-center">
                         <div>
-                          <div className="font-bold text-slate-900">1× Paneer Butter Masala</div>
-                          <div className="text-[9px] text-orange-600 font-sans">Note: Medium spicy, less butter</div>
+                          <div className="font-bold text-slate-900">2× Masala Dosa</div>
+                          <div className="text-[9px] text-orange-600 font-sans">Note: Extra crispy</div>
                         </div>
                         <Check className="w-4 h-4 text-emerald-600" />
                       </div>
 
                       <div className="p-2 rounded-lg bg-slate-50 border border-slate-200 flex justify-between items-center">
                         <div>
-                          <div className="font-bold text-slate-900">1× Crispy Gobi 65</div>
-                          <div className="text-[9px] text-slate-500 font-sans">Note: Extra crispy</div>
+                          <div className="font-bold text-slate-900">1× Paneer Tikka</div>
+                          <div className="text-[9px] text-slate-500 font-sans">Tandoor queue #2</div>
                         </div>
                         <Clock className="w-3.5 h-3.5 text-amber-500" />
                       </div>
@@ -331,14 +323,14 @@ export default function PhoneDemo() {
                       <div className="p-2 rounded-lg bg-slate-50 border border-slate-200 flex justify-between items-center">
                         <div>
                           <div className="font-bold text-slate-900">2× Filter Coffee</div>
-                          <div className="text-[9px] text-slate-500 font-sans">Serve after meal</div>
+                          <div className="text-[9px] text-slate-500 font-sans">Serve after dosa</div>
                         </div>
                         <Clock className="w-3.5 h-3.5 text-slate-400" />
                       </div>
                     </div>
 
                     <div className="p-2.5 rounded-xl bg-slate-100 text-center text-[10px] text-slate-600">
-                      Elapsed time: <span className="font-bold text-slate-900">4 mins 12 secs</span>
+                      Elapsed time: <span className="font-bold text-slate-900">3 mins 45 secs</span>
                     </div>
                   </div>
                 )}
@@ -348,48 +340,43 @@ export default function PhoneDemo() {
                   <div className="space-y-2.5 pt-1 animate-in fade-in duration-200">
                     <div className="border border-dashed border-slate-300 rounded-xl p-3 bg-white font-mono text-[10px] text-slate-800 shadow-sm">
                       <div className="text-center pb-2 border-b border-dashed border-slate-200">
-                        <div className="font-bold text-xs text-slate-900">UDUPI GRAND</div>
-                        <div className="text-[9px] text-slate-400">GSTIN: 36AAAAA0000A1Z5</div>
-                        <div className="text-[9px] text-slate-500 mt-1">Table 5 · Bill #1042 · 15 Oct</div>
+                        <div className="font-bold text-xs text-slate-900">UDUPI TIFFINS</div>
+                        <div className="text-[9px] text-slate-500">Table 6 · Bill #1042</div>
                       </div>
 
                       <div className="space-y-1 py-2 border-b border-dashed border-slate-200">
                         <div className="flex justify-between">
-                          <span>1× Paneer Butter Masala</span>
-                          <span>₹220.00</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span>1× Crispy Gobi 65</span>
-                          <span>₹160.00</span>
+                          <span>2× Masala Dosa</span>
+                          <span>₹140.00</span>
                         </div>
                         <div className="flex justify-between">
                           <span>2× Filter Coffee</span>
                           <span>₹80.00</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>1× Paneer Tikka</span>
+                          <span>₹220.00</span>
                         </div>
                       </div>
 
                       <div className="py-1.5 space-y-0.5 border-b border-dashed border-slate-200">
                         <div className="flex justify-between text-slate-500">
                           <span>Subtotal</span>
-                          <span>₹460.00</span>
+                          <span>₹440.00</span>
                         </div>
                         <div className="flex justify-between text-slate-500">
-                          <span>CGST (2.5%)</span>
-                          <span>₹11.50</span>
-                        </div>
-                        <div className="flex justify-between text-slate-500">
-                          <span>SGST (2.5%)</span>
-                          <span>₹11.50</span>
+                          <span>GST (5%)</span>
+                          <span>₹22.00</span>
                         </div>
                         <div className="flex justify-between font-bold text-slate-900 text-xs pt-1">
-                          <span>TOTAL AMOUNT</span>
-                          <span className="text-[#FF5A00]">₹483.00</span>
+                          <span>TOTAL</span>
+                          <span className="text-[#FF5A00]">₹462.00</span>
                         </div>
                       </div>
 
                       <div className="text-center pt-2">
                         <div className="inline-block px-2.5 py-1 rounded bg-emerald-50 text-emerald-700 font-bold text-[10px] border border-emerald-200">
-                          ✓ PAID VIA UPI QR
+                          ✓ CLOUD SYNCED & PAID
                         </div>
                       </div>
                     </div>
@@ -398,7 +385,6 @@ export default function PhoneDemo() {
 
               </div>
 
-              {/* Bottom Home Indicator Bar */}
               <div className="pb-2 pt-1 flex justify-center">
                 <div className="w-24 h-1 bg-slate-300 rounded-full" />
               </div>
@@ -407,13 +393,12 @@ export default function PhoneDemo() {
           </div>
         </div>
 
-        {/* WhatsApp Call to action below phone */}
         <div className="text-center mt-10">
           <a
             href={bookDemoUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary text-sm py-2.5 px-6 inline-flex items-center gap-2 shadow-md group"
+            className="btn-primary text-xs sm:text-sm py-2.5 px-6 inline-flex items-center gap-2 shadow-md group"
           >
             <span>Book a 1-on-1 WhatsApp Live Demo</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />

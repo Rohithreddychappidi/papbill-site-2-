@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Logo from './Logo';
 import { getWhatsAppUrl } from '../utils/whatsapp';
-import { Menu, X, ArrowUpRight, MessageCircle } from 'lucide-react';
+import { Menu, X, ArrowUpRight, MessageCircle, Sparkles } from 'lucide-react';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -17,32 +17,35 @@ export default function Navbar() {
 
   const navLinks = [
     { label: 'Home', href: '#top' },
-    { label: 'Features', href: '#features' },
     { label: 'Solutions', href: '#solutions' },
+    { label: 'How It Works', href: '#how' },
+    { label: 'POS Billing', href: '#features' },
+    { label: 'Demo', href: '#demo' },
     { label: 'Hardware', href: '#hardware' },
-    { label: 'Pricing', href: '#pricing' },
+    { label: 'Pricing (₹199)', href: '#pricing' },
     { label: 'About', href: '#about' }
   ];
 
-  const contactSalesUrl = getWhatsAppUrl('Hi PapBill team, I want to contact sales for restaurant billing software.');
+  const trialUrl = getWhatsAppUrl('Hi PapBill, I want to start my 15 days free trial.');
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         isScrolled
-          ? 'bg-white/85 backdrop-blur-md border-b border-slate-200/80 shadow-[0_2px_12px_rgba(0,0,0,0.03)] py-2.5'
+          ? 'bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-[0_2px_12px_rgba(0,0,0,0.03)] py-2.5'
           : 'bg-white/95 backdrop-blur-sm border-b border-slate-100 py-3.5'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 max-w-full">
         <div className="flex items-center justify-between">
+          
           {/* Logo */}
           <a href="#top" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded-lg">
-            <Logo />
+            <Logo height={32} />
           </a>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-7 text-[13px] font-medium text-slate-600">
+          <nav className="hidden lg:flex items-center gap-7 text-[13px] font-medium text-slate-600">
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -54,37 +57,39 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Desktop Action */}
-          <div className="hidden md:flex items-center gap-3">
+          {/* Desktop Action: 15 Days Free Trial & WhatsApp */}
+          <div className="hidden sm:flex items-center gap-3">
             <a
-              href={getWhatsAppUrl('Hi PapBill, I want to see a live quick demo.')}
+              href={getWhatsAppUrl('Hi PapBill, I want to know about restaurant billing setup.')}
               target="_blank"
               rel="noopener noreferrer"
               className="text-[13px] font-medium text-slate-700 hover:text-[#FF5A00] px-3 py-1.5 transition-colors flex items-center gap-1.5"
             >
               <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
-              Chat on WhatsApp
+              <span>WhatsApp</span>
             </a>
+
             <a
-              href={contactSalesUrl}
+              href={trialUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary text-[13px] py-1.5 px-4 shadow-sm"
+              className="btn-primary text-xs py-2 px-4 shadow-sm"
             >
-              <span>Contact Sales</span>
+              <Sparkles className="w-3.5 h-3.5 text-amber-200" />
+              <span>15 Days Free Trial</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>
 
           {/* Mobile Hamburger */}
-          <div className="flex items-center gap-2 md:hidden">
+          <div className="flex items-center gap-2 sm:hidden">
             <a
-              href={contactSalesUrl}
+              href={trialUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary text-[12px] py-1.5 px-3"
+              className="btn-primary text-[11px] py-1.5 px-3"
             >
-              Contact Sales
+              15 Days Free
             </a>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -94,13 +99,14 @@ export default function Navbar() {
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
+
         </div>
       </div>
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden glass-panel border-x-0 border-t border-slate-200 mt-2 px-4 py-4 space-y-3 animate-in fade-in slide-in-from-top-2 duration-150">
-          <nav className="flex flex-col space-y-2">
+        <div className="lg:hidden glass-panel border-x-0 border-t border-slate-200 mt-2 px-4 py-4 space-y-3 animate-in fade-in slide-in-from-top-2 duration-150">
+          <nav className="flex flex-col space-y-1">
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -114,12 +120,12 @@ export default function Navbar() {
           </nav>
           <div className="pt-3 border-t border-slate-100 flex flex-col gap-2">
             <a
-              href={contactSalesUrl}
+              href={trialUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary w-full text-center py-2.5 text-[13px]"
             >
-              Contact Sales on WhatsApp
+              Start 15 Days Free Trial on WhatsApp
             </a>
           </div>
         </div>

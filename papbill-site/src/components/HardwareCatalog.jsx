@@ -21,8 +21,8 @@ export default function HardwareCatalog() {
       id: 'tablet',
       category: 'POS Devices',
       name: 'Android POS Tablet Station',
-      desc: '10.1-inch industrial IPS touchscreen pre-loaded with PapBill POS software and metal pivot stand.',
-      specs: 'Octa-core · 4GB RAM · 64GB SSD · WiFi + 4G SIM',
+      desc: '10.1-inch touchscreen pre-configured with PapBill POS software and sturdy metal counter stand.',
+      specs: 'Touchscreen · WiFi + Bluetooth · Stand included',
       icon: Tablet,
       tag: 'Ready to Bill'
     },
@@ -69,12 +69,12 @@ export default function HardwareCatalog() {
     : items.filter(item => item.category === activeTab);
 
   return (
-    <section id="hardware" className="py-20 bg-white border-t border-slate-100 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="hardware" className="py-20 bg-white border-t border-slate-100 w-full relative">
+      <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 max-w-full">
         
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50 border border-orange-200/70 text-[#FF5A00] text-[11px] font-semibold tracking-wide uppercase mb-3">
+        <div className="text-center max-w-2xl mx-auto mb-12 animate-fade-in-up">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50 border border-orange-200/70 text-[#FF5A00] text-xs font-semibold tracking-wide uppercase mb-3">
             Plug & Play Hardware
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">
@@ -143,7 +143,7 @@ export default function HardwareCatalog() {
                     rel="noopener noreferrer"
                     className="w-full btn-secondary text-xs py-2 flex items-center justify-center gap-2 group hover:border-orange-500 hover:text-[#FF5A00]"
                   >
-                    <span>Order via WhatsApp</span>
+                    <span>Inquire via WhatsApp</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                   </a>
                 </div>
@@ -152,10 +152,9 @@ export default function HardwareCatalog() {
           })}
         </div>
 
-        {/* 1-Year Warranty note */}
         <div className="mt-12 text-center flex items-center justify-center gap-2 text-xs text-slate-500 font-medium">
           <ShieldCheck className="w-4 h-4 text-emerald-600" />
-          <span>All PapBill hardware includes 1-year replacement warranty & dedicated phone setup support</span>
+          <span>All hardware includes 1-year replacement warranty & free setup support</span>
         </div>
 
       </div>

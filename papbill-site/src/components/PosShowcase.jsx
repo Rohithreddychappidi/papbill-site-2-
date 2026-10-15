@@ -1,40 +1,40 @@
 import React, { useState } from 'react';
 import { getWhatsAppUrl } from '../utils/whatsapp';
-import { CheckCircle2, ArrowRight, Laptop, Monitor, Smartphone, WifiOff } from 'lucide-react';
+import { CheckCircle2, ArrowRight, Laptop, Monitor, Smartphone, WifiOff, Cloud } from 'lucide-react';
 
 export default function PosShowcase() {
   const [activeTable, setActiveTable] = useState('T-05');
-  const posActionUrl = getWhatsAppUrl('Hi PapBill, I would like to see a live demo of the POS billing features.');
+  const posActionUrl = getWhatsAppUrl('Hi PapBill, I would like to test the POS billing demo.');
 
   const features = [
-    'Table management with visual floor plan',
-    'Item modifiers, add-ons & combos',
+    'Fast counter billing with instant thermal receipt generation',
+    'All billings automatically stored in the cloud',
+    'Works offline (local storage ensures zero sales disruptions)',
     'Split bills & merge tables in one tap',
-    'Full offline mode (bills store locally and sync when back online)',
-    'Multiple payment methods: Cash, UPI QR, Cards & Due accounts',
-    'Works on Android tablets, desktop PCs and mobile phones'
+    'Supports UPI QR codes, Cash, Cards, and Customer credit/dues',
+    'Compatible with Android tablets, Windows PCs, Macs, and Phones'
   ];
 
   return (
-    <section id="features" className="py-20 bg-white border-t border-slate-100 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="features" className="py-20 bg-white border-t border-slate-100 w-full relative">
+      <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 max-w-full">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Column: POS Copy & Checkmarks */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200/70 text-[#FF5A00] text-[11px] font-semibold tracking-wide uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#FF5A00]" />
-              Powerful POS
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200/70 text-[#FF5A00] text-xs font-semibold tracking-wide uppercase">
+              <Cloud className="w-3.5 h-3.5" />
+              Cloud-Backed POS Engine
             </div>
 
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight">
               A POS Designed for <br className="hidden sm:inline" />
-              Real Restaurants
+              Fast-Paced Restaurants
             </h2>
 
             <p className="text-sm md:text-base text-slate-600 leading-relaxed">
-              Fast counter billing, quick table swaps, real-time sync with kitchen displays, and automated inventory deductions. Works effortlessly across Android, Windows, macOS, and Linux.
+              Fast counter billing, quick table swaps, real-time sync with kitchen displays, and automated cloud sync. Works smoothly on Android tablets, desktop PCs, and smartphones.
             </p>
 
             {/* Checkmark List */}
@@ -47,9 +47,8 @@ export default function PosShowcase() {
               ))}
             </div>
 
-            {/* Supported devices badge row */}
             <div className="pt-2 flex items-center gap-4 text-slate-400 text-xs font-medium">
-              <span className="flex items-center gap-1.5"><Smartphone className="w-3.5 h-3.5 text-slate-600" /> Mobile</span>
+              <span className="flex items-center gap-1.5"><Smartphone className="w-3.5 h-3.5 text-slate-600" /> Phone</span>
               <span className="flex items-center gap-1.5"><Laptop className="w-3.5 h-3.5 text-slate-600" /> Tablet</span>
               <span className="flex items-center gap-1.5"><Monitor className="w-3.5 h-3.5 text-slate-600" /> Desktop</span>
               <span className="flex items-center gap-1.5"><WifiOff className="w-3.5 h-3.5 text-slate-600" /> Offline</span>
@@ -60,9 +59,9 @@ export default function PosShowcase() {
                 href={posActionUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary text-[13px] py-2 px-5 group inline-flex items-center gap-2"
+                className="btn-primary text-xs sm:text-sm py-2.5 px-5 group inline-flex items-center gap-2"
               >
-                <span>See POS in Action</span>
+                <span>Request POS Walkthrough on WhatsApp</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </a>
             </div>
@@ -70,17 +69,15 @@ export default function PosShowcase() {
 
           {/* Right Column: POS Display Interface Mockup */}
           <div className="lg:col-span-7">
-            <div className="glass-panel rounded-2xl p-3 bg-white shadow-xl border border-slate-200">
-              <div className="bg-slate-950 rounded-xl overflow-hidden border border-slate-800 text-slate-100 shadow-2xl">
+            <div className="glass-panel rounded-3xl p-3.5 bg-white shadow-xl border border-slate-200">
+              <div className="bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 text-slate-100 shadow-2xl">
                 
                 {/* Header bar */}
                 <div className="px-4 py-2.5 bg-slate-900 border-b border-slate-800 flex items-center justify-between text-xs">
                   <div className="flex items-center gap-2">
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#FF5A00]" />
-                    <span className="font-bold text-slate-200">PapBill Restaurant POS</span>
-                    <span className="text-slate-400 text-[10px]">v3.2</span>
+                    <img src="/papbill-logo.png" alt="PapBill" className="h-4 object-contain brightness-200" />
+                    <span className="text-slate-400 text-[10px]">· Cloud Sync Active</span>
                   </div>
-                  {/* Table Selector Pills */}
                   <div className="flex items-center gap-1.5">
                     {['T-01', 'T-02', 'T-05', 'T-08'].map((t) => (
                       <button
@@ -104,7 +101,7 @@ export default function PosShowcase() {
                   {/* Left Column: Menu Items */}
                   <div className="md:col-span-7 p-3 border-b md:border-b-0 md:border-r border-slate-800/80 space-y-3">
                     <div className="flex items-center justify-between text-[11px] text-slate-400">
-                      <span className="font-semibold text-slate-300">Quick Menu Category</span>
+                      <span className="font-semibold text-slate-300">Fast Menu Category</span>
                       <span className="text-[#FF5A00]">12 items</span>
                     </div>
 
@@ -132,7 +129,7 @@ export default function PosShowcase() {
                           <span>Dum Biryani</span>
                           <span className="text-emerald-400 font-mono text-[11px]">₹240</span>
                         </div>
-                        <div className="text-[10px] text-slate-400 mt-1">Hyd Hyderabadi</div>
+                        <div className="text-[10px] text-slate-400 mt-1">Hyderabadi Pot</div>
                         <span className="inline-block mt-2 px-1.5 py-0.2 rounded bg-red-950 text-red-400 text-[9px] font-medium border border-red-800">NON-VEG</span>
                       </div>
 
@@ -153,7 +150,7 @@ export default function PosShowcase() {
                       <div className="flex justify-between items-center pb-2 border-b border-slate-800">
                         <div>
                           <div className="font-bold text-slate-200 text-xs">Table {activeTable}</div>
-                          <div className="text-[10px] text-slate-400">Cashier: Sravan</div>
+                          <div className="text-[10px] text-slate-400">Cloud ID: #1042</div>
                         </div>
                         <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-mono text-[10px]">
                           KOT PRINTED
@@ -195,7 +192,7 @@ export default function PosShowcase() {
                           rel="noopener noreferrer"
                           className="bg-[#FF5A00] hover:bg-[#E65100] text-white py-1.5 rounded text-[11px] font-bold text-center transition-colors shadow-sm"
                         >
-                          Pay ₹483
+                          Print & Pay
                         </a>
                       </div>
                     </div>

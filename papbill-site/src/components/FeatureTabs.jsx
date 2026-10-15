@@ -8,7 +8,8 @@ import {
   BarChart3, 
   Building2, 
   ArrowRight,
-  CheckCircle2
+  CheckCircle2,
+  Cloud
 } from 'lucide-react';
 
 export default function FeatureTabs() {
@@ -16,34 +17,41 @@ export default function FeatureTabs() {
 
   const categories = [
     'All',
-    'Billing',
-    'QR Ordering',
-    'Kitchen',
+    'Billing (₹199)',
+    'Table QR (₹299)',
+    'Kitchen KOT',
     'Inventory',
-    'Analytics',
-    'Management'
+    'Analytics'
   ];
 
   const features = [
     {
       id: 'billing',
-      category: 'Billing',
-      title: 'POS Billing',
+      category: 'Billing (₹199)',
+      title: 'POS Billing & Thermal Printing',
       desc: 'Fast and intuitive billing on tablet, PC, or phone. Split bills, apply tax/discounts, and print in 2 seconds.',
       icon: Receipt,
-      highlights: ['Split & merge bills', 'Offline billing support', 'UPI QR & card payments']
+      highlights: ['Split & merge bills', 'Offline billing support', 'UPI QR & thermal printer ready']
+    },
+    {
+      id: 'cloud',
+      category: 'Billing (₹199)',
+      title: 'Cloud Billing Storage',
+      desc: 'Every bill generated is safely backed up in the cloud. Check sales and print copies from anywhere.',
+      icon: Cloud,
+      highlights: ['Automatic cloud backup', 'Access records from mobile', 'Safe data preservation']
     },
     {
       id: 'qr',
-      category: 'QR Ordering',
-      title: 'QR Menu & Table Ordering',
-      desc: 'One QR for full digital menu, orders, items placed, and live bill. Contactless and zero customer app install.',
+      category: 'Table QR (₹299)',
+      title: 'Table QR Ordering (Included in ₹299)',
+      desc: 'One QR code on each table gives access to full digital photo menu. Customers browse and order directly.',
       icon: QrCode,
-      highlights: ['Custom restaurant branding', 'Photo menu with dietary tags', 'Instant table-to-counter sync']
+      highlights: ['Included in ₹299/mo plan', 'Photo menu with food tags', 'Instant table-to-kitchen sync']
     },
     {
       id: 'kitchen',
-      category: 'Kitchen',
+      category: 'Kitchen KOT',
       title: 'Kitchen Order Tickets (KOT)',
       desc: 'Automated KOT thermal printing and interactive Kitchen Display System (KDS). Eliminates kitchen shouting.',
       icon: ChefHat,
@@ -64,14 +72,6 @@ export default function FeatureTabs() {
       desc: 'Deep financial and operational insights: hourly sales heatmaps, highest selling dishes, and GST tax reports.',
       icon: BarChart3,
       highlights: ['Day-end closing reports', 'Item popularity matrix', 'Tally & accountant exports']
-    },
-    {
-      id: 'management',
-      category: 'Management',
-      title: 'Multi-Branch Management',
-      desc: 'Run 1 outlet or 100 outlets from a single unified cloud dashboard. Synchronize menus and monitor cashiers.',
-      icon: Building2,
-      highlights: ['Role-based cashier permissions', 'Global menu push', 'Consolidated brand reports']
     }
   ];
 
@@ -80,23 +80,23 @@ export default function FeatureTabs() {
     : features.filter(f => f.category === activeCategory);
 
   return (
-    <section className="py-20 bg-white border-t border-slate-100 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 bg-white border-t border-slate-100 w-full relative">
+      <div className="w-full px-4 sm:px-8 lg:px-12 xl:px-16 max-w-full">
         
         {/* Section Heading */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50 border border-orange-200/70 text-[#FF5A00] text-[11px] font-semibold tracking-wide uppercase mb-3">
-            Comprehensive Suite
+        <div className="text-center max-w-2xl mx-auto mb-12 animate-fade-in-up">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50 border border-orange-200/70 text-[#FF5A00] text-xs font-semibold tracking-wide uppercase mb-3">
+            Core Modules
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">
-            Everything You Need to Run Your Restaurant
+            Everything You Need to Run Your Food Counter
           </h2>
           <p className="text-slate-600 text-sm mt-2">
-            From billing to inventory, kitchen to analytics — PapBill has you covered.
+            From billing to inventory, kitchen to table QR — PapBill has you covered.
           </p>
 
           {/* Category Filter Pills */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-1.5">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
             {categories.map((cat) => (
               <button
                 key={cat}
@@ -114,7 +114,7 @@ export default function FeatureTabs() {
         </div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredFeatures.map((feat) => {
             const Icon = feat.icon;
             const learnMoreUrl = getWhatsAppUrl(`Hi PapBill, I want to know more about the ${feat.title} feature.`);
@@ -154,7 +154,7 @@ export default function FeatureTabs() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FF5A00] hover:text-[#E65100] transition-colors group"
                   >
-                    <span>Learn More on WhatsApp</span>
+                    <span>Ask about this on WhatsApp</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </a>
                 </div>
