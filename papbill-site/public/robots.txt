@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://papbill.hatbricks.com/sitemap.xml

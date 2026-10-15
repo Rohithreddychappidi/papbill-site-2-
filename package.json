@@ -1,0 +1,10 @@
+{
+  "name": "papbill-site-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix papbill-site run dev",
+    "build": "npm --prefix papbill-site run build",
+    "preview": "npm --prefix papbill-site run preview"
+  }
+}
