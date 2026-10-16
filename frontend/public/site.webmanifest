@@ -1,0 +1,23 @@
+{
+  "name": "PapBill - #1 Restaurant POS & Billing Software",
+  "short_name": "PapBill POS",
+  "description": "Smart, offline-first restaurant billing software and mobile POS app for cafes, restaurants, bars, and food courts.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#141E30",
+  "theme_color": "#FF571F",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

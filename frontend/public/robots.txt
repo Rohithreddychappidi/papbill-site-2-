@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Disallow internal search query strings and admin
+Disallow: /*?*
+Disallow: /api/
+
+# Canonical XML Sitemap
+Sitemap: https://papbill.com/sitemap.xml

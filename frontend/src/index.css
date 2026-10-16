@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-navy: #17212D;
+  --color-brand-navy-dark: #0F1720;
+  --color-brand-navy-light: #223041;
+  --color-brand-orange: #FF571F;
+  --color-brand-orange-hover: #E04612;
+  --color-brand-orange-light: #FFF2ED;
+  --color-brand-bg: #F6F8FB;
+  --color-brand-gray: #667085;
+  --color-brand-border: #E5E9EF;
+  --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: #F6F8FB;
+    color: #17212D;
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F6F8FB;
+}
+::-webkit-scrollbar-thumb {
+  background: #D0D5DD;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #98A2B3;
+}
+
+/* Receipt paper styling simulation */
+.receipt-paper {
+  background: #FFFFFF;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+.receipt-paper::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background-size: 12px 6px;
+  background-image: radial-gradient(circle at 6px 6px, transparent 6px, #FFFFFF 6px);
+}
