@@ -9,7 +9,8 @@ import {
   Mail, 
   User, 
   Clock, 
-  Store 
+  Store,
+  MessageCircle
 } from 'lucide-react';
 import { LeadSubmission } from '../types';
 import { submitLead } from '../services/api';
@@ -40,6 +41,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({ defaultProduct, sourcePage =
     type: 'idle' | 'success' | 'error';
     message: string;
     leadId?: string;
+    whatsappUrl?: string;
   }>({
     type: 'idle',
     message: '',
@@ -85,6 +87,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({ defaultProduct, sourcePage =
         type: 'success',
         message: result.message,
         leadId: result.data?.id,
+        whatsappUrl: result.data?.whatsappUrl,
       });
       if (onSuccess) onSuccess();
     } else {
@@ -113,6 +116,23 @@ export const LeadForm: React.FC<LeadFormProps> = ({ defaultProduct, sourcePage =
         {status.leadId && (
           <div className="inline-block px-3 py-1.5 rounded-lg bg-gray-50 border border-gray-200 text-xs font-mono text-gray-500">
             Reference ID: {status.leadId}
+          </div>
+        )}
+
+        {status.whatsappUrl && (
+          <div className="pt-2 space-y-2">
+            <a
+              href={status.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-sm shadow-md transition-all active:scale-95"
+            >
+              <MessageCircle className="w-5 h-5" />
+              <span>Connect on WhatsApp (Instant Response)</span>
+            </a>
+            <p className="text-[11px] text-slate-400">
+              Our restaurant specialists are active now on WhatsApp (+91 94825 58220).
+            </p>
           </div>
         )}
 

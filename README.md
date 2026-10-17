@@ -13,21 +13,17 @@ PapBill by Hatbricks is a production-grade restaurant management and point-of-sa
 
 ## 🚀 Key Modules & Architecture
 
-### 1. Frontend (`/frontend`)
+### Architecture (`/frontend`)
 - **Framework:** React 19 + TypeScript + Vite 8
 - **Styling:** Tailwind CSS v4 with custom design tokens (`#17212D`, `#FF571F`, `#F6F8FB`, `#667085`, `#E5E9EF`)
 - **Routing:** React Router 7 with scroll-to-top handler
 - **Icons:** Lucide React
 - **Typography:** Plus Jakarta Sans & Inter
-- **SEO & Social:** OpenGraph, Twitter Cards, Schema.org JSON-LD (SoftwareApplication & Organization)
-
-### 2. Backend API (`/server`)
-- **Runtime:** Node.js + Express + TypeScript
-- **Database:** Parameterized MySQL pool support with automatic local persistent store fallback (`server/data/leads.json`)
-- **Endpoints:**
-  - `POST /api/public/leads`: Lead capture with strict server-side validation, length sanitization, rate-limiting, and error handling
-  - `GET /api/public/health`: Service health check
-- **Security:** CORS origin whitelisting, payload size limits (100kb), rate-limiting per IP (10 requests / 15 mins)
+- **SEO & Social:** OpenGraph, Twitter Cards, dynamic Schema.org JSON-LD (SoftwareApplication, Organization, Product, FAQPage)
+- **Zero-Backend Standalone Architecture:**
+  - Client-side lead intake with real-time validation and local persistence (`localStorage`)
+  - Direct 1-click WhatsApp lead connection (`+91 94825 58220`)
+  - Static-ready for zero-configuration hosting on Vercel, Netlify, Cloudflare Pages, or AWS S3
 
 ---
 
@@ -35,19 +31,18 @@ PapBill by Hatbricks is a production-grade restaurant management and point-of-sa
 
 | Route | Page Name | Description |
 |---|---|---|
-| `/` | **Home** | Conversion hero with interactive POS terminal, live cart, thermal printer simulation, 5-step workflow, trust metrics, and testimonials |
+| `/` | **Home** | Conversion hero with interactive POS terminal, live cart, thermal printer simulation, 7-step mobile onboarding showcase, trust metrics, and testimonials |
 | `/features` | **Features Deep-Dive** | 10 modular operational systems with problems solved, key benefits, and module consoles |
 | `/solutions` | **Solutions Overview** | Specialized workflows for Cafes, QSRs, Fine Dining, Cloud Kitchens, and Multi-Branch |
 | `/solutions/qr-ordering` | **QR Table Ordering** | Contactless guest ordering journey, mobile simulator, table sessions, and KOT dispatch |
-| `/hardware` | **Hardware Ecosystem** | Certified 80mm thermal receipt printers, POS tablets, cash drawers, scanners, and paper rolls |
-| `/hardware/:id` | **Hardware Product Detail** | Deep-dive technical specifications, connectivity matrix, and instant quote inquiry form |
-| `/pricing` | **Pricing & Plans** | Monthly & Yearly billing toggle (with 20% discount), comparison matrix, and FAQs |
+| `/mobile-app` | **Mobile App & POS** | 7-step onboarding, interactive demo, and Play Store download showcase |
+| `/pricing` | **Pricing & Plans** | Monthly & Yearly billing toggle (with 10% discount), comparison matrix, and FAQs |
 | `/about` | **About PapBill** | Mission, vision, core values, engineering philosophy, and Hatbricks heritage |
-| `/contact` | **Contact Sales** | Sales inquiry form with client/server validation, phone/email support channels |
+| `/contact` | **Contact Sales** | Sales inquiry form with client validation, WhatsApp direct connect, and phone/email support channels |
 | `/get-started` | **Fast-Track Onboarding** | Direct restaurant profile intake, menu digitization, and 14-day evaluation |
-| `/privacy` | **Privacy Policy** | GDPR/DPDP-compliant draft data policies |
-| `/terms` | **Terms of Service** | SaaS and hardware warranty terms |
-| `/refund-policy` | **Refund Policy** | Software subscription and hardware exchange criteria |
+| `/privacy` | **Privacy Policy** | GDPR/DPDP-compliant data policies |
+| `/terms` | **Terms of Service** | SaaS and software warranty terms |
+| `/refund-policy` | **Refund Policy** | Software subscription criteria |
 | `/support` | **Help & Support** | Setup guides for thermal printers, offline mode, and GST profiles |
 
 ---
@@ -60,7 +55,7 @@ PapBill by Hatbricks is a production-grade restaurant management and point-of-sa
 
 ### Installation & Run
 
-1. **Install root dependencies & start frontend:**
+1. **Install dependencies & start frontend:**
    ```bash
    cd frontend
    npm install
@@ -68,15 +63,7 @@ PapBill by Hatbricks is a production-grade restaurant management and point-of-sa
    ```
    The application will start at `http://localhost:5173`.
 
-2. **Run Backend API (Optional):**
-   ```bash
-   cd server
-   npm install
-   npm run dev
-   ```
-   The API server will listen on `http://localhost:5001`.
-
-3. **Or run concurrently from the workspace root:**
+2. **Or run directly from workspace root:**
    ```bash
    npm run dev
    ```
@@ -87,32 +74,10 @@ PapBill by Hatbricks is a production-grade restaurant management and point-of-sa
 
 ```bash
 # Build Frontend
-cd frontend
-npm run build
-
-# Build Server
-cd ../server
 npm run build
 ```
 
 Production assets will be emitted to `frontend/dist`.
-
----
-
-## 🗄️ Database Setup (MySQL)
-
-To connect a live MySQL instance:
-1. Copy `server/.env.example` to `server/.env`:
-   ```env
-   PORT=5001
-   CLIENT_ORIGIN=http://localhost:5173
-   DB_HOST=localhost
-   DB_PORT=3306
-   DB_USER=papbill_user
-   DB_PASSWORD=your_secure_password
-   DB_NAME=papbill_leads
-   ```
-2. Execute the table migration in `server/schema.sql` against your database.
 
 ---
 
